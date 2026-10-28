@@ -18,11 +18,11 @@ this client, including operating-system color-scheme observation and same-appear
 theme = adding one `*.theme.json` file** — to `bundled/` (a PR + rebuild) or, for a user, to
 `~/.thinkrail/themes` (live, [[submodule-server-themes]]) — no code, contract, CSS, or test changes.
 
-Six manifests ship: the standard **Dark** and **Light** (the configured default and its pair, unchanged),
+Eight manifests ship: the standard **Dark** and **Light** (the configured default and its pair, unchanged),
 **Minimal Dark** and **Minimal Light** (the quiet neutral surface hierarchy, restrained green accent and
 neutral `bubbleAccent` of the Minimal interface study, sharing the standard pair's syntax and terminal
-palettes), and the two High Contrast palettes with their stricter accessibility contract. Minimal is a
-palette a user picks in Appearance and nothing more: every theme renders the same roles, so a component
+palettes), the two High Contrast palettes with their stricter accessibility contract, and
+**IntelliJ Islands Dark/Light** projected from pinned JetBrains theme resources. Minimal is a palette a user picks in Appearance and nothing more: every theme renders the same roles, so a component
 never branches on the active theme or its contrast metadata to drop a fill or a border. What a palette
 cannot express through the manifest keys is a product decision for all themes, not a theme.
 
@@ -215,3 +215,13 @@ for user themes. Until then a user theme is one complete manifest.
 
 A user theme never replaces or shadows a bundled one — the `user.` namespace above is the decision.
 Operating-system contrast following and schedule/time-zone UI are out of scope.
+
+## IntelliJ Islands projection
+
+The two `intellij-islands-*` manifests are generated from the offline provenance records in
+`scripts/intellij-islands.sources.json`, pinned to IntelliJ IDEA 2026.2.3's official source commit.
+Every UI, syntax and ANSI value records its source path and key, or a named ThinkRail adaptation.
+The generator belongs to the build-time scripts module; only the complete manifests ship.
+They are selectable palettes, not an IntelliJ runtime or a claim of identical layout, iconography,
+font metrics, semantic highlighting, gradients or alpha-composited control states. Existing preferences
+and default themes remain valid. `INTELLIJ-ISLANDS.md` records exact sources, adaptations and update rules.

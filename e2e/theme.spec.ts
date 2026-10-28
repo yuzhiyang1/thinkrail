@@ -9,6 +9,8 @@ import {
 	revealWorkbenchTool,
 } from "./fixtures/app";
 
+import { E2E_FIXTURE_REPO } from "./fixtures/paths";
+
 interface ThemeOption {
 	id: string;
 	label: string;
@@ -351,3 +353,28 @@ test("selected workspace tabs keep their surface and edge marker, and rail entri
 	}
 	await pickTheme(page, defaultTheme ?? "");
 });
+
+for (const appearance of ["dark", "light"] as const) {
+	test(`IntelliJ Islands ${appearance} uses the official editor canvas and persists`, async ({
+		page,
+	}) => {
+		await openFixtureProject(page);
+		const originalTheme = await page.locator("html").getAttribute("data-theme");
+		if (!originalTheme) throw new Error("Theme did not initialize");
+		writeFileSync(join(E2E_FIXTURE_REPO, "islands.ts"), "export const answer = 42;\n");
+		await enterDefaultWorkspace(page);
+		const theme = `intellij-islands-${appearance}`;
+		await pickTheme(page, theme);
+		await revealWorkbenchTool(page, "files");
+		await page.getByTestId("file-node").filter({ hasText: "islands.ts" }).dblclick();
+		await expect(page.locator(".monaco-editor").first()).toBeVisible();
+		await expectEditorMatchesTheme(page);
+		const expected = appearance === "dark" ? "rgb(25, 26, 28)" : "rgb(255, 255, 255)";
+		await expect(page.locator(".monaco-editor").first()).toHaveCSS("background-color", expected);
+		const keyword = await keywordToken(page);
+		expect(keyword.color).toBe(appearance === "dark" ? "rgb(207, 142, 109)" : "rgb(0, 51, 179)");
+		await page.reload();
+		await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
+		await pickTheme(page, originalTheme);
+	});
+}

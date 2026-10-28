@@ -1,0 +1,686 @@
+{
+	"upstream": {
+		"repository": "JetBrains/intellij-community",
+		"version": "2026.2.3",
+		"tag": "idea/262.10968.63",
+		"commit": "8062c061ff33e22041d9f1844db5b8b8a6b5e4d7",
+		"root": "platform/platform-resources/src/",
+		"files": {
+			"themes/islands/ManyIslandsDark.theme.json": "a91b7caecdd3c6fad8c6397e69cbfa30c115b80e",
+			"themes/islands/ManyIslandsLight.theme.json": "c3b742cb781da20a2574ad260af98c6ea7467a16",
+			"themes/islands/IslandSchemeDark.xml": "5bfad6cbedd0686e7dd1f41fa1f1db4459bb948c",
+			"themes/expUI/expUI_lightScheme.xml": "264d89671684efc6324b275fb0c0140ea40a02f6",
+			"DefaultColorSchemesManager.xml": "e370010dc5a7e8fe22dc21a053c4842d21127654"
+		}
+	},
+	"themes": [
+		{
+			"id": "intellij-islands-dark",
+			"label": "IntelliJ Islands Dark",
+			"order": 25,
+			"appearance": "dark",
+			"contrast": "normal",
+			"colors": {
+				"accent": {
+					"value": "#71a1fe",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.text-link"
+				},
+				"accentHover": {
+					"value": "#2f5eb9",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.blue-70"
+				},
+				"accentSolid": {
+					"value": "#3871e1",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.control-brand-bg"
+				},
+				"onAccent": {
+					"value": "#ffffff",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.text-over-accent"
+				},
+				"bubbleAccent": {
+					"value": "#33353b",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.selection-bg-inactive"
+				},
+				"background": {
+					"value": "#191a1c",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.editor-bg"
+				},
+				"header": {
+					"value": "#26282c",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.main-window-bg"
+				},
+				"content": {
+					"value": "#191a1c",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.editor-bg"
+				},
+				"sidebar": {
+					"value": "#191a1c",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.tool-window-bg"
+				},
+				"input": {
+					"value": "#191a1c",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.control-bg"
+				},
+				"elevated": {
+					"value": "#26282c",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.popup-bg"
+				},
+				"hover": {
+					"value": "#40434a",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.control-bg-small",
+					"adaptation": "Use the official control-bg-small for the shared opaque hover/selected role; IDEA uses contextual alpha overlays."
+				},
+				"border": {
+					"value": "#26282c",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.tool-window-border"
+				},
+				"borderStrong": {
+					"value": "#5f6269",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.control-border-raised"
+				},
+				"text": {
+					"value": "#d1d3d9",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.text-default"
+				},
+				"muted": {
+					"value": "#9fa2a8",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.text-muted"
+				},
+				"hint": {
+					"value": "#8b8e94",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.gray-90",
+					"adaptation": "Use the official gray-90 step so hints remain readable on ThinkRail opaque selected controls."
+				},
+				"selection": {
+					"value": "#2a4371",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.selection-bg-active"
+				},
+				"info": {
+					"value": "#71a1fe",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.text-link"
+				},
+				"success": {
+					"value": "#6db083",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.text-success"
+				},
+				"danger": {
+					"value": "#f57e84",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.text-error"
+				},
+				"warning": {
+					"value": "#d59637",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.text-warning"
+				},
+				"selectionForeground": {
+					"value": null,
+					"adaptation": "Preserve native text foreground; ThinkRail supports no per-token selection foreground projection."
+				},
+				"editorSelectionForeground": {
+					"value": null,
+					"adaptation": "Preserve native text foreground; ThinkRail supports no per-token selection foreground projection."
+				},
+				"editorSelection": {
+					"value": "#214283",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "colors.SELECTION_BACKGROUND"
+				},
+				"dangerHover": {
+					"value": "#d86f74",
+					"adaptation": "ThinkRail destructive hover is danger scaled to 88% in sRGB, matching its existing theme contract."
+				},
+				"onDanger": {
+					"value": "#191a1c",
+					"file": "themes/islands/ManyIslandsDark.theme.json",
+					"key": "colors.editor-bg",
+					"adaptation": "ThinkRail chooses the readable text/background label on its shared destructive fill."
+				}
+			},
+			"ansi": {
+				"black": {
+					"value": "#000000",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_BLACK_OUTPUT.FOREGROUND"
+				},
+				"red": {
+					"value": "#f0524f",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_RED_OUTPUT.FOREGROUND"
+				},
+				"green": {
+					"value": "#5c962c",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_GREEN_OUTPUT.FOREGROUND"
+				},
+				"yellow": {
+					"value": "#a68a0d",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_YELLOW_OUTPUT.FOREGROUND"
+				},
+				"blue": {
+					"value": "#3993d4",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_BLUE_OUTPUT.FOREGROUND"
+				},
+				"magenta": {
+					"value": "#a771bf",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_MAGENTA_OUTPUT.FOREGROUND"
+				},
+				"cyan": {
+					"value": "#00a3a3",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_CYAN_OUTPUT.FOREGROUND"
+				},
+				"white": {
+					"value": "#808080",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_GRAY_OUTPUT.FOREGROUND"
+				},
+				"brightBlack": {
+					"value": "#595959",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_DARKGRAY_OUTPUT.FOREGROUND"
+				},
+				"brightRed": {
+					"value": "#ff4050",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_RED_BRIGHT_OUTPUT.FOREGROUND"
+				},
+				"brightGreen": {
+					"value": "#4fc414",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_GREEN_BRIGHT_OUTPUT.FOREGROUND"
+				},
+				"brightYellow": {
+					"value": "#e5bf00",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_YELLOW_BRIGHT_OUTPUT.FOREGROUND"
+				},
+				"brightBlue": {
+					"value": "#1fb0ff",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_BLUE_BRIGHT_OUTPUT.FOREGROUND"
+				},
+				"brightMagenta": {
+					"value": "#ed7eed",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_MAGENTA_BRIGHT_OUTPUT.FOREGROUND"
+				},
+				"brightCyan": {
+					"value": "#00e5e5",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_CYAN_BRIGHT_OUTPUT.FOREGROUND"
+				},
+				"brightWhite": {
+					"value": "#ffffff",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_WHITE_OUTPUT.FOREGROUND"
+				}
+			},
+			"syntax": {
+				"foreground": {
+					"value": "#bcbec4",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.TEXT.FOREGROUND"
+				},
+				"comment": {
+					"value": "#7a7e85",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.DEFAULT_LINE_COMMENT.FOREGROUND"
+				},
+				"commentDoc": {
+					"value": "#5f826b",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.DEFAULT_DOC_COMMENT.FOREGROUND"
+				},
+				"keyword": {
+					"value": "#cf8e6d",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.DEFAULT_KEYWORD.FOREGROUND"
+				},
+				"string": {
+					"value": "#6aab73",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.DEFAULT_STRING.FOREGROUND"
+				},
+				"number": {
+					"value": "#2aacb8",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.DEFAULT_NUMBER.FOREGROUND"
+				},
+				"regexp": {
+					"value": "#b2ae60",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.REGEXP.CHAR_CLASS.FOREGROUND"
+				},
+				"annotation": {
+					"value": "#b3ae60",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.DEFAULT_METADATA.FOREGROUND"
+				},
+				"tag": {
+					"value": "#bcbec4",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.DEFAULT_TAG.FOREGROUND"
+				},
+				"attributeName": {
+					"value": "#bcbec4",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.XML_ATTRIBUTE_NAME.FOREGROUND"
+				},
+				"attributeValue": {
+					"value": "#6aab73",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.DEFAULT_STRING.FOREGROUND"
+				},
+				"property": {
+					"value": "#c77dbb",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.DEFAULT_INSTANCE_FIELD.FOREGROUND"
+				},
+				"function": {
+					"value": "#56a8f5",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.DEFAULT_FUNCTION_DECLARATION.FOREGROUND"
+				},
+				"type": {
+					"value": "#bcbec4",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.DEFAULT_CLASS_REFERENCE.FOREGROUND"
+				},
+				"variable": {
+					"value": "#bcbec4",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.DEFAULT_IDENTIFIER.FOREGROUND"
+				},
+				"constant": {
+					"value": "#c77dbb",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.DEFAULT_CONSTANT.FOREGROUND"
+				},
+				"operator": {
+					"value": "#bcbec4",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.DEFAULT_OPERATION_SIGN.FOREGROUND"
+				},
+				"punctuation": {
+					"value": "#bcbec4",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "attributes.DEFAULT_COMMA.FOREGROUND"
+				},
+				"inserted": {
+					"value": "#73bd79",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "colors.FILESTATUS_ADDED"
+				},
+				"deleted": {
+					"value": "#de6a66",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "colors.FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS"
+				},
+				"changed": {
+					"value": "#70aeff",
+					"file": "themes/islands/IslandSchemeDark.xml",
+					"key": "colors.FILESTATUS_MODIFIED"
+				}
+			}
+		},
+		{
+			"id": "intellij-islands-light",
+			"label": "IntelliJ Islands Light",
+			"order": 26,
+			"appearance": "light",
+			"contrast": "normal",
+			"colors": {
+				"accent": {
+					"value": "#2e4d89",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.blue-60",
+					"adaptation": "Use the official blue-60 step for the shared link/button tint role to meet ThinkRail contrast floors on all surfaces."
+				},
+				"accentHover": {
+					"value": "#2f5eb9",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.blue-70"
+				},
+				"accentSolid": {
+					"value": "#3871e1",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.control-brand-bg"
+				},
+				"onAccent": {
+					"value": "#ffffff",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.text-over-accent"
+				},
+				"bubbleAccent": {
+					"value": "#e9eaee",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.selection-bg-inactive"
+				},
+				"background": {
+					"value": "#ffffff",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.editor-bg"
+				},
+				"header": {
+					"value": "#e9eaee",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.main-window-bg"
+				},
+				"content": {
+					"value": "#ffffff",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.editor-bg"
+				},
+				"sidebar": {
+					"value": "#ffffff",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.tool-window-bg"
+				},
+				"input": {
+					"value": "#ffffff",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.control-bg"
+				},
+				"elevated": {
+					"value": "#ffffff",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.popup-bg"
+				},
+				"hover": {
+					"value": "#d1d3d9",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.gray-130",
+					"adaptation": "Use the official gray-130 step for the shared opaque hover/selected role; IDEA uses contextual alpha overlays."
+				},
+				"border": {
+					"value": "#e9eaee",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.tool-window-border"
+				},
+				"borderStrong": {
+					"value": "#b5b7bd",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.control-border-raised"
+				},
+				"text": {
+					"value": "#000000",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.text-default"
+				},
+				"muted": {
+					"value": "#5f6269",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.text-muted"
+				},
+				"hint": {
+					"value": "#73767c",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.text-secondary"
+				},
+				"selection": {
+					"value": "#d0dffe",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.selection-bg-active"
+				},
+				"info": {
+					"value": "#2f5eb9",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.text-link"
+				},
+				"success": {
+					"value": "#2a6e47",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.green-70",
+					"adaptation": "Use the official green-70 step for feedback text on the darker application frame."
+				},
+				"danger": {
+					"value": "#a4414a",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.red-70",
+					"adaptation": "Use the official red-70 step so the shared destructive button remains readable on resting and derived hover fills."
+				},
+				"warning": {
+					"value": "#a56906",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.text-warning"
+				},
+				"selectionForeground": {
+					"value": null,
+					"adaptation": "Preserve native text foreground; ThinkRail supports no per-token selection foreground projection."
+				},
+				"editorSelectionForeground": {
+					"value": null,
+					"adaptation": "Preserve native text foreground; ThinkRail supports no per-token selection foreground projection."
+				},
+				"editorSelection": {
+					"value": "#a6d2ff",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "colors.SELECTION_BACKGROUND"
+				},
+				"dangerHover": {
+					"value": "#903941",
+					"adaptation": "ThinkRail destructive hover is danger scaled to 88% in sRGB, matching its existing theme contract."
+				},
+				"onDanger": {
+					"value": "#ffffff",
+					"file": "themes/islands/ManyIslandsLight.theme.json",
+					"key": "colors.editor-bg",
+					"adaptation": "ThinkRail chooses the readable text/background label on its shared destructive fill."
+				}
+			},
+			"ansi": {
+				"black": {
+					"value": "#000000",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_BLACK_OUTPUT.FOREGROUND"
+				},
+				"red": {
+					"value": "#ce0505",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_RED_OUTPUT.FOREGROUND"
+				},
+				"green": {
+					"value": "#067d17",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_GREEN_OUTPUT.FOREGROUND"
+				},
+				"yellow": {
+					"value": "#b28c00",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_YELLOW_OUTPUT.FOREGROUND"
+				},
+				"blue": {
+					"value": "#063fdb",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_BLUE_OUTPUT.FOREGROUND"
+				},
+				"magenta": {
+					"value": "#b309b3",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_MAGENTA_OUTPUT.FOREGROUND"
+				},
+				"cyan": {
+					"value": "#028e8e",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_CYAN_OUTPUT.FOREGROUND"
+				},
+				"white": {
+					"value": "#929292",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_GRAY_OUTPUT.FOREGROUND"
+				},
+				"brightBlack": {
+					"value": "#656565",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_DARKGRAY_OUTPUT.FOREGROUND"
+				},
+				"brightRed": {
+					"value": "#ff1616",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_RED_BRIGHT_OUTPUT.FOREGROUND"
+				},
+				"brightGreen": {
+					"value": "#16b42c",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_GREEN_BRIGHT_OUTPUT.FOREGROUND"
+				},
+				"brightYellow": {
+					"value": "#ecc32c",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_YELLOW_BRIGHT_OUTPUT.FOREGROUND"
+				},
+				"brightBlue": {
+					"value": "#2d61f0",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_BLUE_BRIGHT_OUTPUT.FOREGROUND"
+				},
+				"brightMagenta": {
+					"value": "#e617e6",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_MAGENTA_BRIGHT_OUTPUT.FOREGROUND"
+				},
+				"brightCyan": {
+					"value": "#15c1c1",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_CYAN_BRIGHT_OUTPUT.FOREGROUND"
+				},
+				"brightWhite": {
+					"value": "#c9c9c9",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.CONSOLE_WHITE_OUTPUT.FOREGROUND"
+				}
+			},
+			"syntax": {
+				"foreground": {
+					"value": "#080808",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.TEXT.FOREGROUND"
+				},
+				"comment": {
+					"value": "#8c8c8c",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.DEFAULT_LINE_COMMENT.FOREGROUND"
+				},
+				"commentDoc": {
+					"value": "#8c8c8c",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.DEFAULT_DOC_COMMENT.FOREGROUND"
+				},
+				"keyword": {
+					"value": "#0033b3",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.DEFAULT_KEYWORD.FOREGROUND"
+				},
+				"string": {
+					"value": "#067d17",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.DEFAULT_STRING.FOREGROUND"
+				},
+				"number": {
+					"value": "#1750eb",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.DEFAULT_NUMBER.FOREGROUND"
+				},
+				"regexp": {
+					"value": "#080808",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.TEXT.FOREGROUND"
+				},
+				"annotation": {
+					"value": "#9e880d",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.DEFAULT_METADATA.FOREGROUND"
+				},
+				"tag": {
+					"value": "#080808",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.TEXT.FOREGROUND"
+				},
+				"attributeName": {
+					"value": "#080808",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.TEXT.FOREGROUND"
+				},
+				"attributeValue": {
+					"value": "#067d17",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.DEFAULT_STRING.FOREGROUND"
+				},
+				"property": {
+					"value": "#871094",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.DEFAULT_INSTANCE_FIELD.FOREGROUND"
+				},
+				"function": {
+					"value": "#00627a",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.DEFAULT_FUNCTION_DECLARATION.FOREGROUND"
+				},
+				"type": {
+					"value": "#080808",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.TEXT.FOREGROUND"
+				},
+				"variable": {
+					"value": "#000000",
+					"file": "DefaultColorSchemesManager.xml",
+					"key": "attributes.DEFAULT_IDENTIFIER.FOREGROUND"
+				},
+				"constant": {
+					"value": "#871094",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.DEFAULT_CONSTANT.FOREGROUND"
+				},
+				"operator": {
+					"value": "#080808",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.TEXT.FOREGROUND"
+				},
+				"punctuation": {
+					"value": "#080808",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "attributes.TEXT.FOREGROUND"
+				},
+				"inserted": {
+					"value": "#067d17",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "colors.FILESTATUS_ADDED"
+				},
+				"deleted": {
+					"value": "#de1b2e",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "colors.FILESTATUS_IDEA_FILESTATUS_MERGED_WITH_CONFLICTS"
+				},
+				"changed": {
+					"value": "#0033b3",
+					"file": "themes/expUI/expUI_lightScheme.xml",
+					"key": "colors.FILESTATUS_MODIFIED"
+				}
+			}
+		}
+	]
+}
