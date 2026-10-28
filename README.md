@@ -78,8 +78,8 @@ create the tools it needs based on how you actually work.
   Japanese, Simplified Chinese, and Spanish are built in. Add a language ThinkRail doesn't ship yet by
   dropping a translated `en.json` into `~/.thinkrail/locales` — it applies as you save. Agent replies and
   tool output stay as the agent wrote them.
-- **Your themes.** Settings → Appearance ships dark, light, minimal and high-contrast themes. Make your own
-  by copying a bundled `*.theme.json`, changing its id and colors, and saving it to `~/.thinkrail/themes`.
+- **Your themes.** Settings → Appearance ships dark, light, minimal, high-contrast, and IntelliJ Islands
+  themes. Make your own by copying a bundled `*.theme.json`, changing its id and colors, and saving it to `~/.thinkrail/themes`.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset=".github/readme-assets/specs-dark.png">
@@ -233,6 +233,17 @@ The ThinkRail apps and the ThinkRail website ([thinkrail.ai](https://thinkrail.a
 analytics. The website also uses PostHog Surveys to collect feedback after a desktop download and, only if you
 choose to enter one, your email address, which is used to ask for further feedback and to send product updates.
 PostHog's privacy policy is at [posthog.com/privacy](https://posthog.com/privacy).
+
+## IntelliJ default colors in this fork
+
+Select **Settings → Appearance → Theme → IntelliJ Islands Dark / Light** for palettes derived from
+IntelliJ IDEA 2026.2.3's official default Islands UI and editor schemes. This includes code colors and
+terminal ANSI colors. Every value has a pinned source or an explicit compatibility adaptation in
+[the theme reference](apps/web/src/themes/INTELLIJ-ISLANDS.md); the manifests regenerate from offline
+source records, rather than being hand-tuned from a screenshot. This is a color projection: IntelliJ's
+layout, icons, font metrics and semantic code analysis are not reproduced by a theme file.
+Existing appearance preferences remain unchanged. Build/run this fork to use these themes; upstream
+installers do not include them.
 
 ## Under the hood
 

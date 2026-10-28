@@ -12,8 +12,8 @@ Build-time tooling for `apps/web`. **Nothing here ships**: these modules run und
 machine or in CI, never in the browser bundle. They read files from `src/`, write generated files back
 into `src/`, and exit with a status code.
 
-The directory holds four pipelines — typography, colour, spacing and provider glyphs — built the same way, plus the
-React Compiler census: a diagnostic whose baseline is a ratchet gate. They live here rather than in `src/` because
+The directory holds four token/glyph pipelines — typography, colour, spacing and provider glyphs —
+built the same way, the offline IntelliJ theme projection, and the React Compiler census: a diagnostic whose baseline is a ratchet gate. They live here rather than in `src/` because
 they are *generators*: they use `node:fs` and `node:path`, which must never reach browser-bundled code.
 
 ## What it owns
@@ -106,3 +106,12 @@ in agreement about the same functions.
 Design and rationale for each system itself: [../src/styles/TYPOGRAPHY.md](../src/styles/TYPOGRAPHY.md)
 (`web-typography`), [../src/styles/COLOR.md](../src/styles/COLOR.md) (`web-color`), and
 [../src/styles/SPACING.md](../src/styles/SPACING.md) (`web-spacing`).
+
+## IntelliJ theme projection
+
+`generate-intellij-themes.ts` is an offline CLI over `intellij-islands.sources.json`, a build-only
+projection with source paths, resource blob hashes, upstream release/commit and per-value provenance.
+It writes the two `src/themes/bundled/intellij-islands-*.theme.json` files through `generatedFiles`.
+`intellij-themes:check` runs during the web build. The CLI imports only Node fs/path and the existing
+build helper; it neither imports browser/runtime theme code nor accesses the network. Updating the
+source release requires re-reading the upstream resources and recording every adaptation explicitly.
