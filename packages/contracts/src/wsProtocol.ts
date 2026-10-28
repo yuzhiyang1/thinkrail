@@ -1,3 +1,4 @@
+import type { CustomAction, CustomActionRun, CustomActionsSnapshot } from "./customActions";
 import type {
 	AppConfig,
 	AppConfigUpdate,
@@ -123,7 +124,8 @@ export type TemplateReadLocation =
 	| { projectId: string; workspaceId?: never }
 	| { workspaceId?: never; projectId?: never };
 
-export const PROTOCOL_VERSION = 94;
+export const PROTOCOL_VERSION = 95;
+export const CUSTOM_ACTIONS_PROTOCOL_VERSION = 95;
 export const ONBOARDING_PROTOCOL_VERSION = 94;
 export const LAYOUT_PLAN_PRESET_PROTOCOL_VERSION = 94;
 export const TOOL_RESPONSE_PROTOCOL_VERSION = 93;
@@ -206,6 +208,10 @@ export interface SessionDeletedPayload {
 }
 
 export const WS_METHODS = {
+	actionList: "action.list",
+	actionSave: "action.save",
+	actionRun: "action.run",
+	actionStop: "action.stop",
 	projectOpen: "project.open",
 	projectList: "project.list",
 	projectClose: "project.close",
@@ -595,6 +601,17 @@ export interface McpRenderedTarget {
 }
 
 export interface WsMethodMap {
+	"action.list": { params: Record<string, never>; result: CustomActionsSnapshot };
+	"action.save": {
+		params: { revision: string; actions: CustomAction[] };
+		result: CustomActionsSnapshot;
+	};
+	"action.run": {
+		params: { id: string; revision: string; projectId: string | null };
+		result: CustomActionRun;
+	};
+	"action.stop": { params: { runId: string }; result: CustomActionRun };
+
 	"project.open": { params: { path: string }; result: Project };
 	"project.list": { params: Record<string, never>; result: Project[] };
 	"project.close": { params: { id: string }; result: Ack };

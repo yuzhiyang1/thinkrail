@@ -458,3 +458,10 @@ dependency. This keeps test process drivers outside both launchers and the serve
   `@thinkrail/shared/spawn`; bespoke bounded runners set the option directly. Exempt: spawns that inherit
   an existing terminal's stdio (the `update`/`uninstall` CLI subcommands, the build script) and shell
   probes that are no-ops on win32 (`shellEnv`).
+
+## Fork addition: custom actions
+
+Protocol v95 adds a host-owned catalog of manually invoked commands. A persistent action bar renders
+it independently of Pi sessions; the host actions service executes saved definitions and exposes
+bounded latest-run output. The existing three-ring boundary and shared browser/desktop feature path
+are retained.

@@ -19,6 +19,7 @@ import {
 	WS_CHANNELS,
 } from "@thinkrail/contracts";
 import { errorCodeOf } from "@thinkrail/shared/codedError";
+import { disposeActions } from "../actions";
 import {
 	admissionContextFor,
 	cancelAllMcpProbes,
@@ -913,6 +914,7 @@ export async function createServer(options: CreateServerOptions = {}): Promise<R
 		requestReplays.clear();
 		persistTerminalSessions();
 		closeAllTerminals();
+		disposeActions();
 		setFeedbackPublisher(null);
 		setSettingsPublisher(null);
 		setModelContextPublisher(null);

@@ -88,6 +88,29 @@ create the tools it needs based on how you actually work.
 
 *The project's spec graph as a tree, with the spec itself rendered alongside.*
 
+## Custom actions in this fork
+
+An always-visible action bar lets you add, edit, remove and reorder buttons for multiple projects.
+Buttons can be global or shown only in one project. Each runs a saved executable with literal arguments
+(one per line), a fixed absolute working directory, a timeout and an optional pipeline/result URL.
+No agent session is needed. View live output, stop a local command, or open the configured result link.
+Definitions survive app restarts; the latest run output stays in memory until rerun or host restart.
+
+For a test deployment, first make your cloud CLI command work in a terminal, then add it with the action
+bar's settings button. For example, set **Program** to `bash` and the first **Argument** to the absolute
+path of your own `deploy-test.sh`. Keep that script's pipeline configured for remote `dev`; the button
+neither merges/pushes code nor changes branch. On Windows, use `powershell.exe` with separate `-NoProfile`,
+`-NonInteractive`, `-File` and script-path arguments (or `pwsh` if installed). Shell syntax and variables
+are not expanded in the argument fields; put compound logic in your script. Executables must be on the
+host PATH or named by full path. Use your CLI's existing authentication rather than storing credentials
+in button fields. Commands execute on the ThinkRail host, even when viewed from another machine.
+
+A successful command is **not necessarily a completed deployment**. Have your script wait for and check
+the remote pipeline if you want the command status to reflect its final result. Stopping a command does
+not cancel an already-triggered remote pipeline. At most four commands run together, with one run per
+button across windows. Running buttons cannot be edited or removed. English and Simplified Chinese UI
+strings are included. This is a source change in the fork; upstream installers do not include it.
+
 ## Install
 
 ThinkRail ships in two additive forms: a native desktop installer and the self-contained `thinkrail` CLI.

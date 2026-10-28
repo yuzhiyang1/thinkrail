@@ -146,3 +146,12 @@ never what a particular child's output means.
   client, never what this module holds in memory. Adequate for `git`/`gh`/`glab`, where the worst case is a
   progress log measured in hundreds of KB; a caller that can spew unboundedly needs a `maxBytes` option
   here rather than a truncation after the fact.
+
+## Custom action execution exception
+
+The fork's `actions` module owns its interactive command lifetime: bounded live output from both
+streams, explicit Stop, per-action deduplication and host disposal. Neither existing bounded runner
+provides that combination (`runBounded` accumulates uncapped output and has no cancellation seam;
+`streamBounded` streams only stdout). Actions therefore uses a feature-local process runner rather than
+changing the existing Git/blob callers' completion and buffering contract. POSIX group termination,
+Windows hidden-console behavior and exit-before-EOF completion follow the same host policy.

@@ -1062,3 +1062,10 @@ so an already-loaded old client clears retired markers after reconnect. No activ
 
 `web` (types + the runtime exports listed above) and `server` (same, + mapping `session.*` to `AgentSession` methods). The
 shell panels need `domain` + `wsProtocol`; the `pi` types + `PiEvent` are the wire for the agent session.
+
+## Custom actions (v95)
+
+Type-only `customActions` exports define the revisioned ordered catalog, saved definitions,
+latest-run snapshots and statuses. `action.list/save/run/stop` are protocol-gated host operations;
+run requires saved id, revision and selected project id (or null). Command exit status does not
+imply remote pipeline completion.

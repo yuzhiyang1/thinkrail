@@ -3,12 +3,14 @@ import {
 	RiCircleFill,
 	RiSettings3Line as Settings,
 } from "@remixicon/react";
+import { CUSTOM_ACTIONS_PROTOCOL_VERSION } from "@thinkrail/contracts";
 import type { MessageKey } from "@thinkrail/locales";
 import { useT } from "@thinkrail/locales/react";
 import { IconButton } from "@thinkrail/ui/button";
 import { useEffect, useState } from "react";
 import { NotificationPermissionPrompt, useAttentionNotifications } from "../notifications";
 import { AnalyticsConsentDialog } from "../panels/AnalyticsConsentDialog";
+import { CustomActionBar } from "../panels/CustomActionBar";
 import { InterviewPromptDialog } from "../panels/InterviewPromptDialog";
 import { NewWorkspaceDialog } from "../panels/NewWorkspaceDialog";
 import { SettingsDialog } from "../panels/SettingsDialog";
@@ -157,7 +159,10 @@ export function Shell() {
 		onSessionSwitcher: () => useAppStore.getState().toggleSessionSwitcher(),
 	});
 	return (
-		<div data-testid="shell" className="grid h-full grid-cols-[minmax(0,1fr)] grid-rows-[auto_1fr]">
+		<div
+			data-testid="shell"
+			className={`grid h-full grid-cols-[minmax(0,1fr)] ${protocolVersion !== null && protocolVersion >= CUSTOM_ACTIONS_PROTOCOL_VERSION ? "grid-rows-[auto_auto_1fr]" : "grid-rows-[auto_1fr]"}`}
+		>
 			<header
 				data-testid="topbar"
 				className="relative window-drag flex h-topbar-row min-w-0 select-none items-center border-b border-border-default bg-container-header-bg px-16"
@@ -248,6 +253,7 @@ export function Shell() {
 					/>
 				) : null}
 			</header>
+			<CustomActionBar project={contextProject} />
 			{hasActiveWorkspace && activeWorkspaceId ? (
 				<div data-testid="workspace-shell-layout" className="h-full min-h-0 min-w-0">
 					<WorkspaceWorkbench workspaceId={activeWorkspaceId} />

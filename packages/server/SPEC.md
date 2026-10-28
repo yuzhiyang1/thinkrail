@@ -204,3 +204,8 @@ and calls `refreshExtensionTools()` after an applied update that contains `disab
 ## Later
 
 Persistence behind a data layer, `owner` threading.
+
+## Custom actions
+
+`host` composes `actions` through its barrel; `actions` depends only on `persistence` and contracts.
+It owns explicitly clicked commands independently of Pi, with catalog CRUD and latest-run polling.

@@ -19,6 +19,7 @@ import {
 	WORKSPACE_SETTLE_PROTOCOL_VERSION,
 } from "@thinkrail/contracts";
 import { CodedError } from "@thinkrail/shared/codedError";
+import { listActions, runAction, saveActions, stopAction } from "../actions";
 import {
 	abortSession,
 	acknowledgeCompletion,
@@ -913,6 +914,14 @@ const handlers: WsHandlers = {
 		revealInFileManager(dir);
 		return { ok: true } as const;
 	},
+	"action.list": () => listActions(),
+	"action.save": (p) => saveActions(p.revision, p.actions),
+	"action.run": (p) => {
+		if (p.projectId !== null && !listProjects().some((project) => project.id === p.projectId))
+			throw new Error("The selected project is not open");
+		return runAction(p.id, p.revision, p.projectId);
+	},
+	"action.stop": (p) => stopAction(p.runId),
 	"themes.list": () => readUserThemes(),
 	"themes.reveal": () => {
 		const dir = themesDir();
