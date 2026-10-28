@@ -2277,3 +2277,12 @@ own section. The kebab menu (`plan-menu`, a
   app; panels themselves don't own the boundary.
 - Streaming invariant (when chat lands): `text_delta`/`thinking_delta` **APPEND**;
   `tool_execution_update.partialResult` **REPLACE**.
+
+## Custom action bar
+
+`CustomActionBar` is a layout-independent view of host-owned action snapshots. It polls while
+connected, hydrates on reconnect, filters project-scoped buttons and offers global CRUD/reordering
+in a dialog. Local state owns only drafts/dialogs and pending requests; the host owns definitions
+and runs. A revision conflict preserves the draft and asks the user to reload. Commands execute only
+after a direct click. New forms default to the selected project directory but global visibility.
+English and Simplified Chinese strings ship together.

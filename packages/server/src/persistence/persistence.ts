@@ -2,6 +2,7 @@ import { randomUUID } from "node:crypto";
 import { mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { isAbsolute, join, resolve } from "node:path";
+import type { CustomActionCatalog } from "@thinkrail/contracts";
 import {
 	type AppConfig,
 	DEFAULT_CONFIG,
@@ -459,4 +460,17 @@ export function saveAcquisition(record: AcquisitionRecord): void {
 
 export function replaceAcquisitionWithTerminalMarker(): void {
 	replaceAcquisitionWithTerminalMarkerIn(dataDir());
+}
+
+export function loadCustomActionsRecord(): unknown {
+	try {
+		return JSON.parse(readFileSync(join(dataDir(), "custom-actions.json"), "utf8"));
+	} catch (error) {
+		if (error instanceof Error && "code" in error && error.code === "ENOENT") return null;
+		throw new Error("Could not read the custom action catalog");
+	}
+}
+
+export function saveCustomActionsRecord(catalog: CustomActionCatalog): void {
+	writeJsonAtomic("custom-actions.json", catalog, 0o600);
 }

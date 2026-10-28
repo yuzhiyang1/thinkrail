@@ -1,3 +1,4 @@
+export type * from "./customActions";
 export type * from "./domain";
 export {
 	ACCEPTED_IMAGE_TYPES,

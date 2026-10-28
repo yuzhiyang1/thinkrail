@@ -692,3 +692,9 @@ sound route is snapshot-at-add, never freeze-on-drift.
 One optional persisted `ReviewComment` field carries finding provenance: `origin?: { todoId, reviewedSha,
 sessionId }` — **landed**. The wire `stale?: boolean` is derived by the host per client snapshot, never
 stored. No new tool parameter, no new `status`/`anchorState` enum value.
+
+## Custom action wire
+
+Protocol 95 adds `action.list/save/run/stop`; handlers resolve project visibility and delegate to
+`actions`. Host stop disposes running actions. Execution requests reference saved ids and revisions,
+never an unsaved command.

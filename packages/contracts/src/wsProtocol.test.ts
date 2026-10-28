@@ -16,6 +16,7 @@ import {
 	CHAT_RESOURCES_PROTOCOL_VERSION,
 	CLIENT_ERROR_REPORT_PROTOCOL_VERSION,
 	CONTEXT_WINDOW_SETTINGS_PROTOCOL_VERSION,
+	CUSTOM_ACTIONS_PROTOCOL_VERSION,
 	completionDelivery,
 	customMessageText,
 	DEFAULT_MODEL_PROTOCOL_VERSION,
@@ -277,7 +278,7 @@ test("review details and the GitHub review actions are pinned to v88", () => {
 });
 
 test("project create and the onboarding dismissal are pinned to v94", () => {
-	expect(PROTOCOL_VERSION).toBe(94);
+	expect(PROTOCOL_VERSION).toBeGreaterThanOrEqual(ONBOARDING_PROTOCOL_VERSION);
 	expect(ONBOARDING_PROTOCOL_VERSION).toBe(94);
 	expect(WS_METHODS.projectCreate).toBe("project.create");
 	expect(WS_METHODS.providerDetect).toBe("provider.detect");
@@ -491,4 +492,13 @@ describe("tool response guards", () => {
 			}),
 		).toBeNull();
 	});
+});
+
+test("custom action wire methods are pinned to v95", () => {
+	expect(CUSTOM_ACTIONS_PROTOCOL_VERSION).toBe(95);
+	expect(PROTOCOL_VERSION).toBeGreaterThanOrEqual(CUSTOM_ACTIONS_PROTOCOL_VERSION);
+	expect(WS_METHODS.actionList).toBe("action.list");
+	expect(WS_METHODS.actionSave).toBe("action.save");
+	expect(WS_METHODS.actionRun).toBe("action.run");
+	expect(WS_METHODS.actionStop).toBe("action.stop");
 });

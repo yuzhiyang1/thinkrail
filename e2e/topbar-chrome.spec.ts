@@ -125,7 +125,9 @@ test("ordinary browsers have a fixed themed header with zero native insets", asy
 	await expect(page.getByTestId("update-ready")).toHaveCount(0);
 	await expect(page.getByTestId("window-controls")).toHaveCount(0);
 	await expectUsableHeader(page);
-	expect((await bounds(page.getByTestId("welcome-shell-layout"))).y).toBe(40);
+	const actionBar = await bounds(page.getByTestId("custom-action-bar"));
+	expect(actionBar.y).toBe(40);
+	expect((await bounds(page.getByTestId("welcome-shell-layout"))).y).toBe(actionBar.bottom);
 	const initialColors = await headerColors(page);
 	expect(initialColors.actual).toBe(initialColors.expected);
 
@@ -179,7 +181,9 @@ test("live safe areas on either edge preserve header and workbench geometry", as
 			expect((await bounds(actions)).right).toBeCloseTo(baselineActions.right - right, 1);
 			const workbenchBox = await bounds(workbench);
 			expect(workbenchBox).toEqual(baselineWorkbench);
-			expect(workbenchBox.y).toBe(40);
+			const actionBar = await bounds(page.getByTestId("custom-action-bar"));
+			expect(actionBar.y).toBe(40);
+			expect(workbenchBox.y).toBe(actionBar.bottom);
 			await expect(page.getByTestId("scope-name")).toBeVisible();
 			await expect(page.getByTestId("center-tabs")).toBeVisible();
 			if (left === 80 && right === 138) {
