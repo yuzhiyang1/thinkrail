@@ -1,1 +1,0 @@
-export { locateDesktopLauncher } from "./artifact";
